@@ -21,11 +21,17 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .padding()
                 
-                VStack {
+                VStack(spacing: 8) {
                     Image("icon-sun-large-cloud")
                         .renderingMode(.original)
-                    .resizable()
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 180, height: 180)
+                    Text("76°")
+                        .font(.system(size: 70, weight:
+                            .medium))
+                        .foregroundColor(.white)
+                        
                 }
                 Spacer()
                 
@@ -36,7 +42,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Text("Hello, World!")
+        ContentView()
     }
 }
 
