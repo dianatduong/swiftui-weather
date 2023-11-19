@@ -15,13 +15,28 @@ struct ContentView: View {
                            startPoint: .top,
                            endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
-            
+            VStack {
+              Text("Cupertino, CA")
+                    .font(.system(size: 32, weight: .medium, design: .default))
+                    .foregroundColor(.white)
+                    .padding()
+                
+                VStack {
+                    Image("icon-sun-large-cloud")
+                        .renderingMode(.original)
+                    .resizable()
+                        .frame(width: 180, height: 180)
+                }
+                Spacer()
+                
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Text("Hello, World!")
     }
 }
+
