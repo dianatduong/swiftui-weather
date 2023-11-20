@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .white]),
+            LinearGradient(gradient: Gradient(colors: [.blue, Color("lightBlue")]),
                            startPoint: .top,
                            endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
@@ -33,24 +33,20 @@ struct ContentView: View {
                             .medium))
                         .foregroundColor(.white)
                 }
-                HStack{
-                    VStack{
-                        WeatherWeekView(dayOfWeek: "SUN", weatherImage: "icon-wind", temperature: 60)
-                        }
-                    VStack{
-                        WeatherWeekView(dayOfWeek: "MON", weatherImage: "icon-cloud", temperature: 50)
-                        }
-                    VStack{
-                         WeatherWeekView(dayOfWeek: "TUES", weatherImage: "icon-sun-rain-cloud", temperature: 60)
-                        }
-                    VStack{
-                         WeatherWeekView(dayOfWeek: "WED", weatherImage: "icon-sun-rain-cloud", temperature: 60)
-                                               
-                    }
-                    VStack{
-                         WeatherWeekView(dayOfWeek: "THURS", weatherImage: "icon-sun", temperature: 80)
-                    }
+                .padding(.bottom, 40)
+
+                HStack(spacing: 10){
+                    WeatherWeekView(dayOfWeek: "SUN", weatherImage: "icon-wind", temperature: 60)
+                  
+                    WeatherWeekView(dayOfWeek: "MON", weatherImage: "icon-cloud", temperature: 50)
+                  
+                     WeatherWeekView(dayOfWeek: "TUES", weatherImage: "icon-sun-rain-cloud", temperature: 60)
+                    
+                     WeatherWeekView(dayOfWeek: "WED", weatherImage: "icon-sun-rain-cloud", temperature: 60)
+                                           
+                     WeatherWeekView(dayOfWeek: "THURS", weatherImage: "icon-sun", temperature: 80)
                 }
+                
                 Spacer()
             }
         }
@@ -73,17 +69,17 @@ struct WeatherWeekView: View {
     var body: some View {
         VStack{
             Text(dayOfWeek)
-                .font(.system(size: 25, weight:
+                .font(.system(size: 20, weight:
                     .medium))
                 .foregroundColor(.white)
             Image(weatherImage)
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 60, height: 60)
+                .frame(width: 55, height: 55)
             
-            Text("\(temperature)")
-                .font(.system(size: 35, weight:
+            Text("\(temperature)°")
+                .font(.system(size: 30, weight:
                     .medium))
                 .foregroundColor(.white)
         }
