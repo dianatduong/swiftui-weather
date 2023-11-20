@@ -19,10 +19,10 @@ struct ContentView: View {
               Text("Cupertino, CA")
                     .font(.system(size: 32, weight: .medium, design: .default))
                     .foregroundColor(.white)
-                    .padding()
+                .padding(.top, 40)
                 
                 VStack(spacing: 8) {
-                    Image("icon-wind")
+                    Image("icon-sun-large-cloud")
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -35,8 +35,8 @@ struct ContentView: View {
                 }
                 .padding(.bottom, 40)
 
-                HStack(spacing: 10){
-                    WeatherWeekView(dayOfWeek: "SUN", weatherImage: "icon-wind", temperature: 60)
+                HStack(spacing: 20){
+                    WeatherWeekView(dayOfWeek: "SUN", weatherImage: "icon-sun-large-cloud", temperature: 60)
                   
                     WeatherWeekView(dayOfWeek: "MON", weatherImage: "icon-cloud", temperature: 50)
                   
@@ -45,6 +45,19 @@ struct ContentView: View {
                      WeatherWeekView(dayOfWeek: "WED", weatherImage: "icon-sun-rain-cloud", temperature: 60)
                                            
                      WeatherWeekView(dayOfWeek: "THURS", weatherImage: "icon-sun", temperature: 80)
+                }
+                
+                Spacer()
+                
+                Button(action: {
+                    print("Button tapped!")
+                }) {
+                    Text("Change Day Time")
+                    .font(.system(size: 20, weight: .bold, design: .default))
+                    .foregroundColor(.blue)
+                      .frame(width: 280, height: 50)
+                     .background(Color.white)
+                    .cornerRadius(10)
                 }
                 
                 Spacer()
